@@ -1,0 +1,11 @@
+[Unit]
+Description=Integração do Blue com o VirtualBox
+ConditionVirtualization=oracle
+After=systemd-udev-settle.service
+
+[Service]
+ExecStart=/usr/lib/blue-vbox/VBoxService --foreground
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""Compila e executa exemplos reais para validar o ambiente Blue."""
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import tempfile
+import sys
+
+
+def main():
+    checks = []
+    with tempfile.TemporaryDirectory(prefix='blue-tools-') as directory:
+        work = Path(directory)
+
+        def run(name, args, expected=None):
+            try:
+                result = subprocess.run(args, cwd=work, capture_output=True,
+                                        text=True, timeout=120)
+                ok = result.returncode == 0 and (expected is None or expected in result.stdout)
+                detail = (result.stdout + result.stderr)[-2500:]
+            except (OSError, subprocess.TimeoutExpired) as exc:
+                ok, detail = False, str(exc)
+            checks.append({'test': name, 'ok': ok, 'detail': detail.strip()})
+            print(('OK ' if ok else 'FALHA ') + name, flush=True)
+            return ok
+
+        (work / 'hello.c').write_text('#include <stdio.h>\nint main(void){puts("blue-c-ok");return 0;}\n')
+        if run('Compilador C', ['gcc', '-Wall', '-Werror', 'hello.c', '-o', 'hello-c']):
+            run('Executar C', ['./hello-c'], 'blue-c-ok')
+        (work / 'hello.cpp').write_text('#include <iostream>\nint main(){std::cout << "blue-cpp-ok\\n";}\n')
+        if run('Compilador C++', ['g++', '-Wall', '-Werror', 'hello.cpp', '-o', 'hello-cpp']):
+            run('Executar C++', ['./hello-cpp'], 'blue-cpp-ok')
+        run('Python', ['python3', '-c', 'import sqlite3, tkinter; print("blue-python-ok")'], 'blue-python-ok')
+        if run('Ambiente virtual Python', ['python3', '-m', 'venv', str(work / 'venv')]):
+            run('pip no ambiente virtual', [str(work / 'venv/bin/python'), '-m', 'pip', '--version'], 'pip')
+        run('Node.js', ['node', '-e', 'console.log("blue-node-ok")'], 'blue-node-ok')
+        (work / 'package.json').write_text(json.dumps({'name': 'blue-check', 'version': '1.0.0',
+                                                      'scripts': {'test': 'node -e "console.log(123456)"'}}))
+        run('npm executa projeto', ['npm', 'test', '--offline'], '123456')
+        run('Git inicia repositÃ³rio', ['git', 'init', 'repository'])
+        run('SQLite', ['sqlite3', ':memory:', 'SELECT 2 + 2;'], '4')
+        (work / 'CMakeLists.txt').write_text('cmake_minimum_required(VERSION 3.20)\nproject(BlueCheck C)\nadd_executable(blue hello.c)\n')
+        if run('CMake configura projeto', ['cmake', '-S', '.', '-B', 'cmake-build']):
+            run('CMake compila projeto', ['cmake', '--build', 'cmake-build'])
+        run('Depurador GDB', ['gdb', '--batch', '-ex', 'run', './hello-c'], 'blue-c-ok')
+        run('Editor Geany', ['geany', '--version'], 'geany')
+        (work / 'valid.sh').write_text('#!/bin/sh\necho blue-shell-ok\n')
+        run('ShellCheck', ['shellcheck', 'valid.sh'])
+        run('ripgrep', ['rg', 'blue-c-ok', 'hello.c'], 'blue-c-ok')
+        run('jq', ['jq', '-n', '2 + 2'], '4')
+        run('pkg-config', ['pkg-config', '--version'])
+        run('Gerenciador APT', ['apt-get', 'check'] if os.geteuid() == 0 else ['apt-cache', 'policy', 'git'])
+    failed = [check['test'] for check in checks if not check['ok']]
+    print(json.dumps({'checks': checks, 'failed': failed}, ensure_ascii=False, indent=2))
+    return 1 if failed else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,8 @@
+PRETTY_NAME="Blue 0.3 (base Debian 13)"
+NAME="Blue"
+VERSION_ID="0.3"
+VERSION="0.3"
+ID=blue
+ID_LIKE=debian
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13

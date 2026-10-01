@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Terminal
+Exec=xfce4-terminal
+Icon=/usr/share/icons/hicolor/scalable/apps/blue-terminal.svg
+Terminal=false
+Categories=Development;Utility;

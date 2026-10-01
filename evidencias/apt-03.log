@@ -1,0 +1,24 @@
+Atingido:1 http://deb.debian.org/debian trixie InRelease
+Obter:2 http://deb.debian.org/debian trixie-updates InRelease [47,3 kB]
+Obter:3 http://security.debian.org trixie-security InRelease [43,4 kB]
+Obter:4 http://deb.debian.org/debian trixie/main Translation-pt_BR [1.112 kB]
+Obter:5 http://security.debian.org trixie-security/main Sources [238 kB]
+Obter:6 http://security.debian.org trixie-security/main amd64 Packages [263 kB]
+Obter:7 http://deb.debian.org/debian trixie/main Translation-pt [230 kB]
+Obtidos 1.935 kB em 2s (1.252 kB/s)
+Lendo listas de pacotes...
+Lendo listas de pacotes...
+Construindo árvore de dependências...
+Lendo informação de estado...
+Os NOVOS pacotes a seguir serão instalados:
+  tree
+0 pacotes atualizados, 1 pacotes novos instalados, 0 a serem removidos e 1 não atualizados.
+É preciso baixar 59,4 kB de arquivos.
+Depois desta operação, 132 kB adicionais de espaço em disco serão usados.
+Obter:1 http://deb.debian.org/debian trixie/main amd64 tree amd64 2.2.1-1 [59,4 kB]
+Obtidos 59,4 kB em 0s (242 kB/s)
+Selecionando pacote previamente não selecionado tree.
+(Lendo banco de dados ... (Lendo banco de dados ... 5%(Lendo banco de dados ... 10%(Lendo banco de dados ... 15%(Lendo banco de dados ... 20%(Lendo banco de dados ... 25%(Lendo banco de dados ... 30%(Lendo banco de dados ... 35%(Lendo banco de dados ... 40%(Lendo banco de dados ... 45%(Lendo banco de dados ... 50%(Lendo banco de dados ... 55%(Lendo banco de dados ... 60%(Lendo banco de dados ... 65%(Lendo banco de dados ... 70%(Lendo banco de dados ... 75%(Lendo banco de dados ... 80%(Lendo banco de dados ... 85%(Lendo banco de dados ... 90%(Lendo banco de dados ... 95%(Lendo banco de dados ... 100%(Lendo banco de dados ... 111710 arquivos e diretórios atualmente instalados).
+Preparando para desempacotar .../tree_2.2.1-1_amd64.deb ...
+Desempacotando tree (2.2.1-1) ...
+Configurando tree (2.2.1-1) ...

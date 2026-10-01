@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Conheça o Blue
+Comment=Informações sobre o sistema Blue
+Exec=blue-welcome
+Icon=blue
+Terminal=false
+Categories=System;

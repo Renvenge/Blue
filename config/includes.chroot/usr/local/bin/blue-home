@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+"""Tela inicial leve do Blue. SPDX-License-Identifier: MIT."""
+import subprocess
+import tkinter as tk
+from tkinter import messagebox, ttk
+import re
+import time
+
+# Aguarda o ajuste inicial da resolução antes de calcular a janela.
+time.sleep(1)
+
+BG, CARD, TEXT, MUTED, ACCENT = '#0b1220', '#172438', '#edf5ff', '#9fb3cc', '#218aff'
+
+def launch(command):
+    try:
+        subprocess.Popen(command, start_new_session=True)
+    except OSError as exc:
+        messagebox.showerror('Não foi possível abrir', str(exc))
+
+def display_settings():
+    dialog = tk.Toplevel(root)
+    dialog.title('Ajustar a tela')
+    dialog.configure(bg=BG)
+    dialog.geometry('380x240')
+    tk.Label(dialog, text='Escolha uma resolução', bg=BG, fg=TEXT,
+             font=('DejaVu Sans', 14, 'bold')).pack(pady=20)
+    try:
+        output = subprocess.check_output(['xrandr', '--query'], text=True)
+        connection = re.search(r'^(\S+) connected', output, re.M)
+        if not connection:
+            raise ValueError('Nenhuma tela conectada.')
+        section = output[connection.end():].split('\n', 1)[1]
+        section = re.split(r'^\S', section, maxsplit=1, flags=re.M)[0]
+        modes = list(dict.fromkeys(re.findall(r'^\s+(\d+x\d+)\s', section, re.M)))
+        choice = ttk.Combobox(dialog, values=modes, state='readonly')
+        choice.set('800x600' if '800x600' in modes else modes[0])
+        choice.pack(pady=8)
+        def apply():
+            old = re.search(r'^\s+(\d+x\d+).*\*', section, re.M)
+            try:
+                subprocess.run(['xrandr', '--output', connection[1], '--mode', choice.get()],
+                               check=True, capture_output=True, timeout=10)
+                # Retorno automático se a confirmação ficar fora da tela.
+                timer = dialog.after(15000, lambda: restore())
+                def restore():
+                    if old:
+                        subprocess.run(['xrandr', '--output', connection[1], '--mode', old[1]])
+                keep = messagebox.askyesno('A tela está boa?', 'Manter esta resolução?\nEla será revertida em 15 segundos.', parent=dialog)
+                dialog.after_cancel(timer)
+                if not keep:
+                    restore()
+                dialog.destroy()
+            except (OSError, subprocess.SubprocessError) as exc:
+                messagebox.showerror('Resolução indisponível', str(exc), parent=dialog)
+        tk.Button(dialog, text='Aplicar resolução', command=apply, bg=ACCENT, fg='white',
+                  relief='flat', padx=16, pady=10).pack(pady=10)
+    except (OSError, ValueError, IndexError, subprocess.SubprocessError) as exc:
+        tk.Label(dialog, text=str(exc), wraplength=340, bg=BG, fg=TEXT).pack()
+
+root = tk.Tk()
+root.title('Blue • Início')
+root.configure(bg=BG)
+w, h = min(760, root.winfo_screenwidth()-48), min(540, root.winfo_screenheight()-100)
+root.geometry(f'{w}x{h}+24+24')
+root.minsize(540, 430)
+tk.Label(root, text='●  Blue', font=('DejaVu Sans', 28, 'bold'), fg=ACCENT, bg=BG).pack(anchor='w', padx=28, pady=(22, 2))
+tk.Label(root, text='Seu espaço para criar.', font=('DejaVu Sans', 15), fg=TEXT, bg=BG).pack(anchor='w', padx=28)
+tk.Label(root, text='Escolha uma ferramenta e comece seu projeto.', fg=MUTED, bg=BG).pack(anchor='w', padx=28, pady=(6, 16))
+grid = tk.Frame(root, bg=BG)
+grid.pack(fill='both', expand=True, padx=24)
+items = [
+    ('Programar', 'Editor Geany', lambda: launch(['geany'])),
+    ('Terminal', 'Comandos e ferramentas', lambda: launch(['xfce4-terminal'])),
+    ('Arquivos', 'Pastas e projetos', lambda: launch(['pcmanfm'])),
+    ('Instalar programas', 'Buscar pacotes no Synaptic', lambda: launch(['pkexec', '/usr/sbin/synaptic'])),
+    ('Assistente', 'Monitor e IA local', lambda: launch(['python3', '/usr/lib/blue-assistant/blue_assistant.py'])),
+    ('Ajustar a tela', 'Resolução e tamanho', display_settings),
+]
+for i, (title, description, action) in enumerate(items):
+    button = tk.Button(grid, text=title+'\n'+description, command=action, justify='left', anchor='w',
+                       font=('DejaVu Sans', 11), bg=CARD, fg=TEXT, activebackground='#263b57',
+                       activeforeground='white', relief='flat', borderwidth=0, padx=16, pady=14,
+                       cursor='hand2', highlightthickness=1, highlightbackground='#253751')
+    button.grid(row=i//2, column=i%2, sticky='nsew', padx=5, pady=5)
+    grid.rowconfigure(i//2, weight=1)
+grid.columnconfigure(0, weight=1)
+grid.columnconfigure(1, weight=1)
+footer = tk.Frame(root, bg=BG)
+footer.pack(fill='x', padx=28, pady=16)
+tk.Label(footer, text='Blue 0.3 • seu ambiente de programação', fg=MUTED, bg=BG,
+         font=('DejaVu Sans', 9)).pack(side='left')
+tk.Button(footer, text='Documentação ↗', command=lambda: launch(['firefox-esr', 'https://devdocs.io/']),
+          bg=BG, fg=ACCENT, relief='flat', cursor='hand2').pack(side='right')
+root.mainloop()

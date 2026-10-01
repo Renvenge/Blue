@@ -1,0 +1,70 @@
+Global {
+ edge=bottom
+ allign=center
+ margin=0
+ widthtype=percent
+ width=100
+ height=36
+ transparent=1
+ background=0
+ backgroundfile=/usr/share/backgrounds/blue/blue-wallpaper.png
+ tintcolor=#142033
+ alpha=255
+ setdocktype=1
+ setpartialstrut=1
+ usefontcolor=1
+ fontcolor=#edf5ff
+ iconsize=24
+}
+Plugin {
+ type=menu
+ Config {
+  image=/usr/share/icons/hicolor/scalable/apps/blue.svg
+  system {
+  }
+  separator {
+  }
+  item {
+   name=Conheça o Blue
+   action=blue-welcome
+   image=blue
+  }
+  item {
+   name=Sair
+   action=lxsession-logout
+   image=system-log-out
+  }
+ }
+}
+Plugin {
+ type=launchbar
+ Config {
+  Button {
+   id=geany.desktop
+  }
+  Button {
+   id=firefox-esr.desktop
+  }
+  Button {
+   id=xfce4-terminal.desktop
+  }
+ }
+}
+Plugin {
+ type=taskbar
+ expand=1
+ Config {
+  tooltips=1
+  IconsOnly=0
+ }
+}
+Plugin {
+ type=tray
+}
+Plugin {
+ type=dclock
+ Config {
+  ClockFmt=%H:%M
+  TooltipFmt=%d/%m/%Y
+ }
+}

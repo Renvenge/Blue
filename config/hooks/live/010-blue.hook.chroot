@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+cat > /usr/lib/os-release <<'EOF'
+PRETTY_NAME="Blue 0.3 (base Debian 13)"
+NAME="Blue"
+VERSION_ID="0.3"
+VERSION="0.3"
+ID=blue
+ID_LIKE=debian
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13
+EOF
+cp /usr/lib/os-release /etc/os-release
+printf 'Blue 0.3 - Linux para programacao\n' > /etc/issue
+printf 'Blue\n' > /etc/hostname
+chmod 0755 /usr/local/bin/blue-welcome /usr/local/bin/blue-check-tools
+find /usr/local/bin -maxdepth 1 -name 'blue-*' -type f -exec chmod 0755 {} +
+chmod 0755 /usr/lib/blue-vbox/VBoxClient /usr/lib/blue-vbox/VBoxService
+update-alternatives --set x-session-manager /usr/bin/startlxde
+# Mantém o relógio correto para validação de assinaturas e ferramentas de rede.
+if ! dpkg-query -W -f='${Status}' systemd-timesyncd 2>/dev/null | grep -q 'install ok installed'; then
+ apt-get install -y --no-install-recommends systemd-timesyncd
+fi
+systemctl enable NetworkManager.service lightdm.service systemd-timesyncd.service
+systemctl enable blue-vbox.service
+
+blue-check-tools > /var/log/blue-tools-build-check.log 2>&1

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Início do Blue
+Comment=Ferramentas, programas e ajustes do Blue
+Exec=blue-home
+Icon=blue
+Terminal=false
+Categories=Development;Utility;

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Programar
+Exec=geany
+Icon=/usr/share/icons/hicolor/scalable/apps/blue-code.svg
+Terminal=false
+Categories=Development;Utility;

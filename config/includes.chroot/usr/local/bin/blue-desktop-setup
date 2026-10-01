@@ -1,0 +1,14 @@
+#!/bin/sh
+# SPDX-License-Identifier: MIT
+# Primeira sessão: desktop livre e resolução conservadora em VirtualBox.
+python3 /usr/lib/blue-desktop/theme.py
+if [ ! -f "$HOME/.config/blue-display-initialized" ]; then
+    mkdir -p "$HOME/.config"
+    if grep -qi virtualbox /sys/class/dmi/id/product_name 2>/dev/null; then
+        output=$(xrandr --query | awk '$2 == "connected" {print $1; exit}')
+        if [ -n "$output" ] && xrandr --query | grep -q '^[[:space:]]*800x600[[:space:]]'; then
+            xrandr --output "$output" --mode 800x600
+        fi
+    fi
+    touch "$HOME/.config/blue-display-initialized"
+fi

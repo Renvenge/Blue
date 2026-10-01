@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Blue
+Comment=Área de trabalho leve do Blue
+Exec=startlxde
+Type=Application
+DesktopNames=LXDE

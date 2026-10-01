@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Ajuste automático da tela
+Exec=blue-vm-display
+OnlyShowIn=LXDE;
+NoDisplay=true

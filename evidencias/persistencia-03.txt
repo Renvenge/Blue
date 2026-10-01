@@ -1,0 +1,23 @@
+2026-10-01T18:52:30-03:00
+PRETTY_NAME="Blue 0.3 (base Debian 13)"
+NAME="Blue"
+VERSION_ID="0.3"
+VERSION="0.3"
+ID=blue
+ID_LIKE=debian
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13
+Blue persistence 0.3
+tree v2.2.1 © 1996 - 2024 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro
+tree	2.2.1-1
+overlay overlay rw,noatime,lowerdir=/run/live/rootfs/filesystem.squashfs/,upperdir=/run/live/persistence/sda1/rw,workdir=/run/live/persistence/sda1/work,redirect_dir=on
+NAME   FSTYPE   LABEL       SIZE
+loop0  squashfs             1,2G
+sda                          32G
+└─sda1 ext4     blue-data    32G
+sr0    iso9660  BLUE_LIVE   1,4G
+zram0  swap               978,8M
+crw-rw---- 1 root video 10, 261 out  1 18:50 /dev/vboxuser
+active
+1245 /usr/lib/blue-vbox/VBoxClient --vmsvga
+1246 /usr/lib/blue-vbox/VBoxClient --vmsvga

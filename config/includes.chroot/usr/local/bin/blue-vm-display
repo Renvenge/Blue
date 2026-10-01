@@ -1,0 +1,4 @@
+#!/bin/sh
+if grep -qi virtualbox /sys/class/dmi/id/product_name 2>/dev/null; then
+    exec /usr/lib/blue-vbox/VBoxClient --vmsvga
+fi

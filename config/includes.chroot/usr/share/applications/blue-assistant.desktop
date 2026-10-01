@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Blue Assistant
+Comment=Monitor local e IA para programação
+Exec=python3 /usr/lib/blue-assistant/blue_assistant.py
+Icon=/usr/share/icons/hicolor/scalable/apps/blue-assistant.svg
+Terminal=false
+Categories=Development;System;

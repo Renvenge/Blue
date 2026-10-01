@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Preparar desktop Blue
+Exec=blue-desktop-setup
+OnlyShowIn=LXDE;
+NoDisplay=true

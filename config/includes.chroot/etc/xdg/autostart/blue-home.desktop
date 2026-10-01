@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Início do Blue
+Exec=blue-home
+Icon=blue
+Terminal=false
+OnlyShowIn=LXDE;
+Hidden=true

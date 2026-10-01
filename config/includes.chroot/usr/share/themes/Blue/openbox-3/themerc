@@ -1,0 +1,48 @@
+# Blue: acabamento plano, leve, sem compositor.
+border.width: 1
+padding.width: 8
+padding.height: 5
+window.handle.width: 0
+window.client.padding.width: 0
+window.label.text.justify: left
+window.active.border.color: #30435b
+window.inactive.border.color: #202c3c
+window.active.client.color: #101a29
+window.inactive.client.color: #101a29
+window.active.title.bg: Flat Solid
+window.active.title.bg.color: #18263a
+window.inactive.title.bg: Flat Solid
+window.inactive.title.bg.color: #111c2b
+window.active.label.bg: Parentrelative
+window.inactive.label.bg: Parentrelative
+window.active.label.text.color: #edf4fc
+window.inactive.label.text.color: #8393a8
+window.active.label.text.font: shadow=n
+window.inactive.label.text.font: shadow=n
+window.active.button.unpressed.bg: Parentrelative
+window.inactive.button.unpressed.bg: Parentrelative
+window.active.button.unpressed.image.color: #a9bfd9
+window.inactive.button.unpressed.image.color: #6d809a
+window.active.button.hover.bg: Flat Solid
+window.active.button.hover.bg.color: #294566
+window.active.button.hover.image.color: #ffffff
+window.active.button.pressed.bg: Flat Solid
+window.active.button.pressed.bg.color: #1688ff
+window.active.button.pressed.image.color: #ffffff
+menu.border.width: 1
+menu.border.color: #30435b
+menu.title.bg: Flat Solid
+menu.title.bg.color: #18263a
+menu.title.text.color: #edf4fc
+menu.items.bg: Flat Solid
+menu.items.bg.color: #101a29
+menu.items.text.color: #d4e0ef
+menu.items.disabled.text.color: #6d809a
+menu.items.active.bg: Flat Solid
+menu.items.active.bg.color: #294566
+menu.items.active.text.color: #ffffff
+osd.border.width: 1
+osd.border.color: #30435b
+osd.bg: Flat Solid
+osd.bg.color: #18263a
+osd.label.text.color: #edf4fc

@@ -1,0 +1,70 @@
+21:41:57.467558 main     VBoxClient 7.0.8 r156879 (verbosity: 0) linux.amd64 (Apr 17 2023 18:38:34) release log
+21:41:57.467561 main     Log opened 2026-10-01T21:41:57.467554000Z
+21:41:57.468356 main     OS Product: Linux
+21:41:57.468695 main     OS Release: 6.12.107+deb13-amd64
+21:41:57.469069 main     OS Version: #1 SMP PREEMPT_DYNAMIC Debian 6.12.107-1 (2026-08-29)
+21:41:57.469637 main     Executable: /usr/lib/blue-vbox/VBoxClient
+21:41:57.469638 main     Process ID: 1850
+21:41:57.469639 main     Package type: LINUX_64BITS_GENERIC
+21:41:57.470371 main      VBoxClient 7.0.8 r156879 started. Verbose level = 0. Wayland environment detected: no
+21:41:57.471027 main      Service: SVGA X11 display
+21:41:57.471733 main      Initializing service ...
+21:41:57.475485 main      VMWARE's ctrl extension is available. Major Opcode is 128.
+21:41:57.478228 main      Creating worker thread ...
+21:41:57.479303 main      Service started
+21:41:57.500069 dp-svga-x11  output[0] successfully configured
+21:41:57.979378 X11 events  received X11 event (89)
+21:41:57.980324 X11 events  RRScreenChangeNotify event received
+21:41:57.981932 X11 events  Monitor 0 (w,h)=(1024,640) (x,y)=(0,0)
+21:41:57.982738 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:41:57.983649 X11 events  received X11 event (89)
+21:41:57.984195 X11 events  RRScreenChangeNotify event received
+21:41:57.985227 X11 events  Monitor 0 (w,h)=(1024,640) (x,y)=(0,0)
+21:41:57.986189 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:41:57.987278 X11 events  received X11 event (89)
+21:41:57.987812 X11 events  RRScreenChangeNotify event received
+21:41:57.988649 X11 events  Monitor 0 (w,h)=(1024,640) (x,y)=(0,0)
+21:41:57.989184 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:42:01.514343 dp-svga-x11  output[0] successfully configured
+21:42:01.997333 X11 events  received X11 event (89)
+21:42:01.998154 X11 events  RRScreenChangeNotify event received
+21:42:01.999368 X11 events  Monitor 0 (w,h)=(1024,640) (x,y)=(0,0)
+21:42:02.000353 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:42:02.001727 X11 events  received X11 event (89)
+21:42:02.002362 X11 events  RRScreenChangeNotify event received
+21:42:02.003298 X11 events  Monitor 0 (w,h)=(1024,640) (x,y)=(0,0)
+21:42:02.003995 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:42:45.533906 dp-svga-x11  output[0] successfully configured
+21:42:45.545089 X11 events  received X11 event (89)
+21:42:45.545776 X11 events  RRScreenChangeNotify event received
+21:42:45.546867 X11 events  Monitor 0 (w,h)=(800,600) (x,y)=(0,0)
+21:42:45.547418 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:42:45.548132 X11 events  received X11 event (89)
+21:42:45.550265 X11 events  RRScreenChangeNotify event received
+21:42:45.551016 X11 events  Monitor 0 (w,h)=(800,600) (x,y)=(0,0)
+21:42:45.551681 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:42:45.552532 X11 events  received X11 event (89)
+21:42:45.552960 X11 events  RRScreenChangeNotify event received
+21:42:45.555420 X11 events  Monitor 0 (w,h)=(800,600) (x,y)=(0,0)
+21:42:45.556251 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:42:45.557206 X11 events  received X11 event (89)
+21:42:45.557698 X11 events  RRScreenChangeNotify event received
+21:42:45.558583 X11 events  Monitor 0 (w,h)=(800,600) (x,y)=(0,0)
+21:42:45.559334 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:44:13.420778 dp-svga-x11  output[0] successfully configured
+21:44:13.616414 X11 events  received X11 event (89)
+21:44:13.617125 X11 events  RRScreenChangeNotify event received
+21:44:13.617964 X11 events  Monitor 0 (w,h)=(1280,720) (x,y)=(0,0)
+21:44:13.618496 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:44:13.619263 X11 events  received X11 event (89)
+21:44:13.619728 X11 events  RRScreenChangeNotify event received
+21:44:13.620919 X11 events  Monitor 0 (w,h)=(1280,720) (x,y)=(0,0)
+21:44:13.621724 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:44:13.622584 X11 events  received X11 event (89)
+21:44:13.623078 X11 events  RRScreenChangeNotify event received
+21:44:13.624472 X11 events  Monitor 0 (w,h)=(1280,720) (x,y)=(0,0)
+21:44:13.625586 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS
+21:44:13.627033 X11 events  received X11 event (89)
+21:44:13.627575 X11 events  RRScreenChangeNotify event received
+21:44:13.628827 X11 events  Monitor 0 (w,h)=(1280,720) (x,y)=(0,0)
+21:44:13.629407 X11 events  Sending monitor positions (8 of them)  to the host: VINF_SUCCESS

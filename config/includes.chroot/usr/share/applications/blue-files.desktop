@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Arquivos
+Exec=pcmanfm
+Icon=/usr/share/icons/hicolor/scalable/apps/blue-files.svg
+Terminal=false
+Categories=Development;Utility;

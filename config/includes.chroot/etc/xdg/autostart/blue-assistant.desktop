@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Blue Assistant
+Exec=python3 /usr/lib/blue-assistant/blue_assistant.py --minimized
+Icon=blue
+Terminal=false
+OnlyShowIn=LXDE;
