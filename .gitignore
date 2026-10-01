@@ -1,0 +1,15 @@
+build/
+build-tools/
+*.iso
+*.iso.sha256
+!Blue-0.3-amd64.iso.sha256
+*.vdi
+*.zip
+build-tools/*.iso
+build-tools/*.part
+build-tools/vm/
+build-tools/ssh*
+build-tools/*password*
+__pycache__/
+config/includes.chroot/usr/lib/blue-vbox/VBoxClient
+config/includes.chroot/usr/lib/blue-vbox/VBoxService
